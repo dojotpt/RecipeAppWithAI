@@ -1,0 +1,18 @@
+# Virtual Environment
+   venv/
+
+   # Python cache files
+   __pycache__/
+   *.pyc
+
+   # Large files that exceed GitHub's limits
+   venv/Lib/site-packages/clang/native/libclang.dll
+   venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
+
+   # IDE settings
+   .vscode/
+   .idea/
+
+   # OS generated files
+   .DS_Store
+   Thumbs.db
