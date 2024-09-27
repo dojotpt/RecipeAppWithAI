@@ -1,0 +1,5 @@
+recipe_ai_model/venv/
+*.dll
+*.pyd
+__pycache__/
+*.pyc
