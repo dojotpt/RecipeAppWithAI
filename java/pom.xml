@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.techelevator</groupId>
-    <artifactId>Recipe App</artifactId>
+    <artifactId>Recipe-App</artifactId>
     <version>1.0</version>
 
     <properties>

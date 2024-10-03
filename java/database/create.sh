@@ -1,5 +1,5 @@
 #!/bin/bash
-export PGPASSWORD='Dolly924@'
+export PGPASSWORD='kevin'
 BASEDIR=$(dirname $0)
 DATABASE=recipe_app
 psql -U postgres -f "$BASEDIR/dropdb.sql" &&
