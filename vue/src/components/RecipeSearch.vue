@@ -2,6 +2,7 @@
   <div>
     <h1>Recipe Search</h1>
     <input v-model="query" placeholder="Enter a recipe" />
+    <button @click="searchRecipes">Search</button>
     <ul v-if="recipes.length">
       <li v-for="recipe in recipes" :key="recipe.uri">
         {{ recipe.label }}
