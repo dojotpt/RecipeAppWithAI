@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Recipe Search</h1>
     <input v-model="query" placeholder="Enter a recipe" />
     <button @click="searchRecipes">Search</button>
     <ul v-if="recipes.length">
