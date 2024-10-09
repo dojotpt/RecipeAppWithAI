@@ -1,5 +1,5 @@
 <template>
-  <div id="capstone-app">
+  <div id="recipe-app">
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link
@@ -7,6 +7,8 @@
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
+      |
+      <router-link v-bind:to="{ name: 'search' }">Search Recipes</router-link>
       <recipe-search />
     </div>
     <router-view />
@@ -14,10 +16,18 @@
 </template>
 
 <script>
-import RecipeSearch from "./components/RecipeSearch.vue";
-export default {
-  components: {
-    RecipeSearch,
-  },
-};
 </script>
+
+<style>
+#recipe-app {
+  width: 600px;
+  background: lightblue;
+  margin: 75px auto;
+  padding-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+}
+#nav {
+  text-align: center;
+}
+</style>
