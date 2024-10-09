@@ -1,29 +1,55 @@
 <template>
-
   <div id="entire-page-container">
     <div id="header-container">
-    <header>
-  <div id="nav">
-    <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-  </div>
-  <div id="search">
-    <router-link v-bind:to="{ name: 'search' }">Search Recipes</router-link>
-    <recipe-search />
-  </div>
-  <div id="title">Cookin' with Java</div>
-  <div id="user-actions">
-    <button>logout</button>
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout
-    </router-link> 
-  </div>
-</header>
+      <header>
+        <div id="nav">
+          <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
+        </div>
+        <div id="search">
+          <input v-model="query" placeholder="Enter a recipe" />
+          
+          <router-link :to="`/search`">
+          <button @click="searchRecipes">Find a Recipe</button>
+          </router-link>
 
+          <ul v-if="recipes.length">
+            <li v-for="recipe in recipes" :key="recipe.uri">
+              {{ recipe.label }}
+            </li>
+          </ul>
+        </div>
+        <div id="title">Cookin' with Java</div>
+        <div id="user-actions">
+          <button>logout</button>
+          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> 
+        </div>
+      </header>
     </div>
     <router-view />
   </div>
 </template>
-
 <script>
+import RecipeService from './services/RecipeService';
+
+export default {
+  data() {
+    return {
+      query: "",
+      recipes: [],
+    };
+  },
+  methods: {
+    searchRecipes() {
+      RecipeService.searchRecipes(this.query)
+        .then((response) => {
+          this.recipes = response.data.hits.map((hit) => hit.recipe);
+        })
+        .catch((error) => {
+          console.log("There was an error fetching recipes:", error);
+        });
+    },
+  },
+};
 </script>
 
 <style>
@@ -33,12 +59,14 @@
   flex-direction: column;
 }
 header {
-  display:flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto;
+  grid-template-areas: "nav search title social-media user-actions";
+  width: 100%;
+  align-items: center;
 }
 #header-container {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  grid-template-areas: "nav search title user-actions";
+  display:flex;
   align-items: center;
   background-color: #F5F5DC;
   padding: .25% .25% 0 .25%;
@@ -47,28 +75,24 @@ header {
 }
 #nav { 
   grid-area: nav;
-  justify-self: start; 
+  justify-self: center; 
 }
 #search { 
-  grid-area: search; 
+  grid-area: search;
+  justify-self: center; 
 }
 #title { 
   grid-area: title;
   font-size: 58px;
-
+  text-align: center;
+  justify-self: center;
 }
 #user-actions { 
   grid-area: user-actions; 
+  justify-self: flex-end;
   }
-#recipe-app {
-  width: 600px;
-  background: lightblue;
-  margin: 75px auto;
-  padding-bottom: 10px;
-  font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
-}
-#nav {
-  text-align: center;
+#social-media {
+  grid-area: social-media;
+  justify-self: center;
 }
 </style>

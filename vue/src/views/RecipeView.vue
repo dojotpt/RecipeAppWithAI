@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import RecipeSearch from "../components/RecipeSearch.vue";
+import SearchRecipe from "../components/SearchRecipe.vue";
 
 export default {
   components: {
-    RecipeSearch,
+    SearchRecipe,
   },
 };
 </script>
