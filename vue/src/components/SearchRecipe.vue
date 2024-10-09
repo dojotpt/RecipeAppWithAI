@@ -1,22 +1,3 @@
-<!-- <template>
-  <div class="search-recipe-container">
-
-  <div class="results-container"> 
-    <ul v-if="recipes.length">
-      <li v-for="recipe in recipes" :key="recipe.uri">
-        {{ recipe.label }}
-      </li>
-    </ul>
-  </div>
-
-  <div class="search-recipe">
-    <input v-model="query" placeholder="Enter a recipe" />
-    <button @click="searchRecipes">Search</button>
-  </div>
-  </div>
-
-</template> -->
-
 <template>
   <div class="recipe-search-container">
    
@@ -114,20 +95,3 @@ export default {
   background-color: #f9f9f9;
 }
 </style>
-
-<!-- <style scoped>
-.search-recipe-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 85%;
-  min-height: 80vh;
-  background: lightblue;
-  margin: 75px auto;
-  padding-bottom: 10px;
-  font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
-}
-
-
-</style> -->
