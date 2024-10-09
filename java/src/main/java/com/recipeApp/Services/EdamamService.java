@@ -32,6 +32,8 @@ public class EdamamService {
                 .queryParam("q", query)
                 // queryParam for "app_id" and "app_key" is the way that Edamam expects the id's and keys to look for authentication on it's end.
                 // I think this means that Spring takes our variables recipeId and tells Edamam that this should be the same as app_id. Otherwise it won't make calls for us
+                .queryParam("from", 21)
+                .queryParam("to", 30)
                 .queryParam("app_id", recipeId)
                 .queryParam("app_key", recipeKey)
                 // .toUriString formats all of it so that it functions properly in the url

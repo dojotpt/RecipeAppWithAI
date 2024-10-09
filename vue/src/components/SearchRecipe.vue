@@ -1,7 +1,5 @@
 <template>
   <div class="recipe-search-container">
-   
-    
     <div class="results-area" v-if="recipes.length">
       <h2>Search Results</h2>
       <ul class="recipe-list">
@@ -10,7 +8,6 @@
         </li>
       </ul>
     </div>
-
 
     <div class="search-area">
       <input v-model="query" placeholder="Enter a recipe" />
@@ -33,6 +30,7 @@ export default {
     searchRecipes() {
       RecipeService.searchRecipes(this.query)
         .then((response) => {
+          console.log(response.data);
           this.recipes = response.data.hits.map((hit) => hit.recipe);
         })
         .catch((error) => {
@@ -70,7 +68,7 @@ export default {
 .search-area button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
