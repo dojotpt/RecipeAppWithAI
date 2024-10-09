@@ -1,11 +1,23 @@
+
+
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <p>You are logged in as {{ this.user }}</p>
   </div>
 </template>
 
 <script>
-export default {
-};
+import AuthService from "../services/AuthService.js";
+
+// export default {
+//   data() {
+//     return {
+//       user: "",
+//     };
+//   },
+//   created() {
+//     this.fetchUser();
+//   },
+// };
 </script>

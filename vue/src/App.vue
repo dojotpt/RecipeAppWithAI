@@ -1,4 +1,5 @@
 <template>
+
   <div id="entire-page-container">
     <div id="header-container">
     <header>
@@ -6,6 +7,7 @@
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
   </div>
   <div id="search">
+    <router-link v-bind:to="{ name: 'search' }">Search Recipes</router-link>
     <recipe-search />
   </div>
   <div id="title">Cookin' with Java</div>
@@ -15,18 +17,13 @@
     </router-link> 
   </div>
 </header>
+
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import RecipeSearch from "./components/RecipeSearch.vue";
-export default {
-  components: {
-    RecipeSearch,
-  },
-};
 </script>
 
 <style>
@@ -63,4 +60,15 @@ header {
 #user-actions { 
   grid-area: user-actions; 
   }
+#recipe-app {
+  width: 600px;
+  background: lightblue;
+  margin: 75px auto;
+  padding-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+}
+#nav {
+  text-align: center;
+}
 </style>
