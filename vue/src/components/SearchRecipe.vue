@@ -38,11 +38,28 @@ export default {
           console.log("There was an error fetching recipes:", error);
         });
     },
+    performSearchFromQuery() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryParam = urlParams.get('q');
+      if (queryParam) {
+        this.query = queryParam;
+        this.searchRecipes();
+      }
+    }
   },
+  mounted() {
+    this.performSearchFromQuery();
+  },
+  watch: {
+    $route(to, from) {
+      this.performSearchFromQuery();
+    }
+  }
 };
 </script>
 
 <style scoped>
+
 .recipe-search-container {
   display: flex;
   flex-direction: column;
@@ -51,7 +68,7 @@ export default {
   max-width: 1600px;
   margin: 0 auto;
   background: lightblue;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .search-area {

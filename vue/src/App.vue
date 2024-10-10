@@ -6,10 +6,9 @@
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
       </div>
       <div id="search">
-        <input v-model="query" placeholder="Enter a recipe" />
-
-        <router-link :to="`/search`">
-          <button @click="searchRecipes">Find a Recipe</button>
+        <input v-model="headerQuery" placeholder="Enter a recipe" />
+        <router-link :to="{ name: `search`, query: { q: headerQuery } }" class="search-button">
+          <button @click="handleSearch">Find a Recipe</button>
         </router-link>
 
         <ul v-if="recipes.length">
@@ -39,19 +38,14 @@ import RecipeService from "./services/RecipeService";
 export default {
   data() {
     return {
-      query: "",
-      recipes: [],
+      headerQuery: "",
     };
   },
   methods: {
-    searchRecipes() {
-      RecipeService.searchRecipes(this.query)
-        .then((response) => {
-          this.recipes = response.data.hits.map((hit) => hit.recipe);
-        })
-        .catch((error) => {
-          console.log("There was an error fetching recipes:", error);
-        });
+    handleSearch() {
+      this.$nextTick(() => {
+        this.headerQuery = "";
+      });
     },
   },
 };
