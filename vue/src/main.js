@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import CapstoneApp from './App.vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { createStore } from './store'
 import router from './router'
 import axios from 'axios'

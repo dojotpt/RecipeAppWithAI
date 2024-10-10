@@ -5,6 +5,7 @@
       <ul class="recipe-list">
         <li v-for="recipe in recipes" :key="recipe.uri" class="recipe-item">
           {{ recipe.label }}
+          <img class="recipe-thumbnail" :src="recipe.image" alt="recipe icon" />
         </li>
       </ul>
     </div>
@@ -47,9 +48,10 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   background: lightblue;
+  margin-top: 100px;
 }
 
 .search-area {
@@ -75,6 +77,7 @@ export default {
 }
 
 .results-area {
+  margin-top: 75px;
   width: 100%;
 }
 
@@ -82,14 +85,26 @@ export default {
   list-style-type: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
   gap: 20px;
 }
 
 .recipe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   background-color: #f9f9f9;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.recipe-thumbnail {
+  border-radius: 15px;
+  height: 80px;
+  width: 80px;
 }
 </style>
