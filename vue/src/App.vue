@@ -1,21 +1,12 @@
 <template>
   <div id="entire-page-container">
-    <div id="header-container"></div>
     <header>
       <div id="nav">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
       </div>
       <div id="search">
         <input v-model="headerQuery" placeholder="Enter a recipe" />
-        <router-link :to="{ name: `search`, query: { q: headerQuery } }" class="search-button">
-          <button @click="handleSearch">Find a Recipe</button>
-        </router-link>
-
-        <ul v-if="recipes.length">
-          <li v-for="recipe in recipes" :key="recipe.uri">
-            {{ recipe.label }}
-          </li>
-        </ul>
+          <button @click.prevent="handleSearch">Find a Recipe</button>
       </div>
       <div id="title">Cookin' with Java</div>
       <div id="user-actions">
@@ -33,7 +24,6 @@
 
 
 <script>
-import RecipeService from "./services/RecipeService";
 
 export default {
   data() {
@@ -42,11 +32,16 @@ export default {
     };
   },
   methods: {
-    handleSearch() {
-      this.$nextTick(() => {
+    async handleSearch() {
+      if (this.headerQuery.trim()) {
+        try {
+          await this.$router.push({ name: 'search', query: { q: this.headerQuery } });
         this.headerQuery = "";
-      });
-    },
+      } catch (e) {
+        console.error("Error searching for recipes:", e);
+      }
+    }
+  },
   },
 };
 </script>

@@ -38,9 +38,8 @@ export default {
           console.log("There was an error fetching recipes:", error);
         });
     },
-    performSearchFromQuery() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryParam = urlParams.get('q');
+    searchFromHeaderQuery() {
+      const queryParam = this.$route.query.q;
       if (queryParam) {
         this.query = queryParam;
         this.searchRecipes();
@@ -48,11 +47,14 @@ export default {
     }
   },
   mounted() {
-    this.performSearchFromQuery();
+    this.searchFromHeaderQuery();
   },
   watch: {
-    $route(to, from) {
-      this.performSearchFromQuery();
+    "$route.query.q": {
+      handler(query) {
+        this.searchFromHeaderQuery();
+      },
+      immediate: true
     }
   }
 };
