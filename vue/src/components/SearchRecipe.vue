@@ -44,7 +44,7 @@ export default {
         this.query = queryParam;
         this.searchRecipes();
       }
-    }
+    },
   },
   mounted() {
     this.searchFromHeaderQuery();
@@ -54,14 +54,13 @@ export default {
       handler(query) {
         this.searchFromHeaderQuery();
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 
 <style scoped>
-
 .recipe-search-container {
   display: flex;
   flex-direction: column;
