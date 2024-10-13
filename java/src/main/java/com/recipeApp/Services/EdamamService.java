@@ -26,6 +26,7 @@ public class EdamamService {
         String url = "https://api.edamam.com/search";
         // UriComponentsBuilder is a Spring Utility that will build Uri's
         // fromHttpUrl initializes the builder. Tells it that you will add to the end of the base url
+
         String uri = UriComponentsBuilder.fromHttpUrl(url)
                 // q adds the String query in the parameters to the end of the search query
                 // in our example from Postman, query = "chicken" adds ?q=chicken to the URL

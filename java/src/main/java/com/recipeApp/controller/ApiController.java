@@ -1,5 +1,6 @@
 package com.recipeApp.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.recipeApp.Services.EdamamService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class ApiController {
     }
 
     @GetMapping("/recipes")
-    public String getRecipes(@RequestParam String query) {
+    public String getRecipes(@RequestParam String query) throws JsonProcessingException {
         return edamamService.searchRecipes(query);
     }
 
