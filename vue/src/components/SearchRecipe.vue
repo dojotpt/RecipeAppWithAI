@@ -23,6 +23,7 @@ import RecipeService from "../services/RecipeService";
 export default {
   data() {
     return {
+      user: "",
       query: "",
       recipes: [],
     };
