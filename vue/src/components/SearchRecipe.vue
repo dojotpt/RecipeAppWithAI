@@ -9,12 +9,12 @@
         </li>
       </ul>
     </div>
-
     <div class="search-area">
       <input v-model="query" placeholder="Enter a recipe" />
       <button @click="searchRecipes">Search</button>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
         this.query = queryParam;
         this.searchRecipes();
       }
-    },
+    }
   },
   mounted() {
     this.searchFromHeaderQuery();
@@ -55,40 +55,41 @@ export default {
       handler(query) {
         this.searchFromHeaderQuery();
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 
 <style scoped>
+
 .recipe-search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  max-width: 1600px;
+  padding: 1rem;
+  max-width: 100rem;
   margin: 0 auto;
-  background: lightblue;
-  margin-top: 150px;
+  background: rgba(154, 208, 229, .5);
+  margin-top: 10.5rem;
 }
 
 .search-area {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.8rem;
 }
 
 .search-area input {
   width: 60%;
-  padding: 10px;
-  font-size: 16px;
+  padding: .6rem;
+  font-size: 1rem;
 }
 
 .search-area button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: .6rem 1.3rem;
+  font-size: 1rem;
   background-color: #4caf50;
   color: white;
   border: none;
@@ -96,7 +97,7 @@ export default {
 }
 
 .results-area {
-  margin-top: 75px;
+  margin-top: 4.68rem;
   width: 100%;
 }
 
@@ -105,25 +106,24 @@ export default {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .recipe-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
+  border: .07rem solid #ddd;
+  border-radius: .5rem;
+  padding: 1rem;
   background-color: #f9f9f9;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
 .recipe-thumbnail {
-  border-radius: 15px;
-  height: 80px;
-  width: 80px;
+  border-radius: 1rem;
+  height: 5rem;
+  width: 5rem;
 }
 </style>

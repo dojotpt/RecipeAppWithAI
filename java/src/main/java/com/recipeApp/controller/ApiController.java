@@ -17,7 +17,7 @@ public class ApiController {
     }
 
     @GetMapping("/recipes")
-    public String getRecipes(@RequestParam String query) throws JsonProcessingException {
+    public String getRecipes(@RequestParam String query) {
         return edamamService.searchRecipes(query);
     }
 

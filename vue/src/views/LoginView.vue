@@ -70,6 +70,9 @@ export default {
 </script>
 
 <style scoped>
+#login {
+  margin-top: 200px;
+}
 .form-input-group {
   margin-bottom: 1rem;
   margin-top: 75px;
