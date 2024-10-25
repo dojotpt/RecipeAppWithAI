@@ -1,4 +1,8 @@
 import axios from "axios";
+const http = axios.create({
+    baseURL: import.meta.env.VITE_REMOTE_API
+});
+
 
 export default {
     searchRecipes(query) {
@@ -14,4 +18,7 @@ export default {
             }
         });
     },
+    getRecipe(recipeUri){
+return http.get(`/recipes/${recipeUri}`);
+    }
 }

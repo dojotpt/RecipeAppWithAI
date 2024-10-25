@@ -2,10 +2,8 @@ package com.recipeApp.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.recipeApp.Services.EdamamService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @CrossOrigin
 @RestController
 public class ApiController {
@@ -29,5 +27,10 @@ public class ApiController {
     @GetMapping("/food-info")
     public String getFoodInfo(@RequestParam String foodId) {
         return edamamService.getFoodInfo(foodId);
+    }
+
+    @GetMapping("/recipes/{uri}")
+    public String getRecipeByUri(@PathVariable String uri) {
+        return edamamService.getRecipeByUri(uri);
     }
 }

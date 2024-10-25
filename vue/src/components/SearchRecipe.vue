@@ -2,10 +2,12 @@
   <div class="recipe-search-container">
     <div class="results-area" v-if="recipes.length">
       <h2>Search Results</h2>
-      <ul class="recipe-list">
+      <ul class="recipe-list"> 
         <li v-for="recipe in recipes" :key="recipe.uri" class="recipe-item">
+          <router-link :to="{ name: 'recipes', params: { uri: recipe.uri }}">
           {{ recipe.label }}
           <img class="recipe-thumbnail" :src="recipe.image" alt="recipe icon" />
+        </router-link>
         </li>
       </ul>
     </div>

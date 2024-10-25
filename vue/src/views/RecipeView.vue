@@ -1,15 +1,15 @@
 <template>
   <div>
-    <recipe-search></recipe-search>
+    <recipe />
   </div>
 </template>
 
 <script>
-import SearchRecipe from "../components/SearchRecipe.vue";
+import Recipe from "../components/Recipe.vue";
 
 export default {
   components: {
-    SearchRecipe,
+    Recipe,
   },
 };
 </script>
