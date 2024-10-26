@@ -62,7 +62,15 @@ public class EdamamService {
                 .toUriString();
         return restTemplate.getForObject(uri, String.class);
     }
-
+    public String getRecipeById(String recipeId) {
+        String url = "https://api.edamam.com/api/recipes/v2/" + recipeId;
+        String uri = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("type", "public")
+                .queryParam("app_id", this.recipeId)
+                .queryParam("app_key", recipeKey)
+                .toUriString();
+        return restTemplate.getForObject(uri, String.class);
+    }
     public String getRecipeByUri(String recipeUri) {
         String url = "https://api.edamam.com/api/recipes/v2/by-uri";
         String uri = UriComponentsBuilder.fromHttpUrl(url)

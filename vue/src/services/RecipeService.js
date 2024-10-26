@@ -18,7 +18,7 @@ export default {
             }
         });
     },
-    getRecipe(recipeUri){
-return http.get(`/recipes/${recipeUri}`);
+    getRecipeById(recipeId){
+        return http.get(`/recipes/${recipeId}`);
     }
 }

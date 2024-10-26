@@ -1,70 +1,19 @@
 <template>
-  <div class="recipe-search-container">
-    <div class="results-area" v-if="recipes.length">
-      <h2>Search Results</h2>
-      <ul class="recipe-list"> 
-        <li v-for="recipe in recipes" :key="recipe.uri" class="recipe-item">
-          <router-link :to="{ name: 'recipes', params: { uri: recipe.uri }}">
-          {{ recipe.label }}
-          <img class="recipe-thumbnail" :src="recipe.image" alt="recipe icon" />
-        </router-link>
-        </li>
-      </ul>
-    </div>
-    <div class="search-area">
-      <input v-model="query" placeholder="Enter a recipe" />
-      <button @click="searchRecipes">Search</button>
-    </div>
+  <div>
+    <recipe-search></recipe-search>
   </div>
-  
 </template>
 
 <script>
-import RecipeService from "../services/RecipeService";
+import SearchRecipe from "../components/SearchRecipe.vue";
 
 export default {
-  data() {
-    return {
-      user: "",
-      query: "",
-      recipes: [],
-    };
+  components: {
+    SearchRecipe,
   },
-  methods: {
-    searchRecipes() {
-      RecipeService.searchRecipes(this.query)
-        .then((response) => {
-          console.log(response.data);
-          this.recipes = response.data.hits.map((hit) => hit.recipe);
-        })
-        .catch((error) => {
-          console.log("There was an error fetching recipes:", error);
-        });
-    },
-    searchFromHeaderQuery() {
-      const queryParam = this.$route.query.q;
-      if (queryParam) {
-        this.query = queryParam;
-        this.searchRecipes();
-      }
-    }
-  },
-  mounted() {
-    this.searchFromHeaderQuery();
-  },
-  watch: {
-    "$route.query.q": {
-      handler(query) {
-        this.searchFromHeaderQuery();
-      },
-      immediate: true
-    }
-  }
 };
 </script>
-
 <style scoped>
-
 .recipe-search-container {
   display: flex;
   flex-direction: column;

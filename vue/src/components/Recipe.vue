@@ -16,18 +16,12 @@ export default {
     }
   },
   created(){
-    const recipeUri = this.$route.params.uri;
-    RecipeService.getRecipe(recipeUri).then((response) => {
+    const recipeId = this.$route.params.id;
+    RecipeService.getRecipeById(recipeId).then((response) => {
       console.log(response.data);
-      if (response.data.hits && response.data.hits.length > 0) {
-        this.recipe = response.data.hits[0].recipe;
-      }  else if (response.data.recipe) {
         this.recipe = response.data.recipe;
-      }
-      console.log('Recipe data:', this.recipe);
     })
   },
 }
-
   </script>
 

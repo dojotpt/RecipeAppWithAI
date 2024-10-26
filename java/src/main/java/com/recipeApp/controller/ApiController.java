@@ -29,8 +29,8 @@ public class ApiController {
         return edamamService.getFoodInfo(foodId);
     }
 
-    @GetMapping("/recipes/{uri}")
-    public String getRecipeByUri(@PathVariable String uri) {
-        return edamamService.getRecipeByUri(uri);
+    @GetMapping("/recipes/{id}")
+    public String getRecipeById(@PathVariable String id) {
+        return edamamService.getRecipeById(id);
     }
 }
