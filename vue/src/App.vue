@@ -3,7 +3,7 @@
     <header>
           <div id="title">Cookin' with Java</div>
           <div id="search">
-        <input v-model="headerQuery" placeholder="Enter a recipe" />
+        <input v-model="headerQuery" @keyup.enter="handleSearch" placeholder="Enter a recipe" />
           <button @click.prevent="handleSearch">Find a Recipe</button>
       </div>
       <div class="logo-title-container">

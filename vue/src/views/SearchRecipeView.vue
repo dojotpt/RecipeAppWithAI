@@ -12,7 +12,7 @@
       </ul>
     </div>
     <div class="search-area">
-      <input v-model="query" placeholder="Enter a recipe" />
+      <input v-model="query" @keyup.enter="searchRecipes" placeholder="Enter a recipe" />
       <button @click="searchRecipes">Search</button>
     </div>
   </div>
