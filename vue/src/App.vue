@@ -175,9 +175,10 @@ justify-content: flex-start;
 #social-media {
   justify-self: center;
 }
-@media (max-width: 48rem) {
+@media (max-width: 48em) {
   header {
     flex-direction: column;
+    min-height: 18vh;
     height: auto;
     padding: 1rem;
   }
@@ -207,5 +208,19 @@ justify-content: flex-start;
 #user-actions {
   margin-top: 1rem;
 }
+}
+@media (max-width: 90em) {
+  #entire-page-container {
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    flex-direction: column;
+    min-height: 12vh;
+    height: auto;
+    padding: 0.5vh 2vw;
+    gap: 0.5rem;
+  }
+
 }
 </style>

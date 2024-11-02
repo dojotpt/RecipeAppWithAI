@@ -61,15 +61,8 @@ export default {
   max-width: 100rem;
   margin: 0 auto;
   background: rgba(154, 208, 229, .5);
-  margin-top: 10.5rem;
-}
-
-/* .recipe-card {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.8rem;
-} */
+  margin-top: calc(22vh + 2rem);
+  padding: 2rem;
 
 .recipe-card {
   margin-top: 4.68rem;
@@ -100,6 +93,40 @@ export default {
   border-radius: 1rem;
   height: 5rem;
   width: 5rem;
+}
+@media (max-width: 26em) {
+
+}
+@media (max-width: 48em) {
+  .recipe-container {
+    margin-top: calc(25vh + 2rem);
+    padding: clamp(.5rem, 2vh, 1.5rem);
+  }
+
+  .recipe-card {
+    margin-top: 1rem;
+  }
+}
+}
+
+@media (max-width: 64em) {
+  .recipe-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 90em) {
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;margin-top: calc(18vh + 2rem);
+  max-width: 85rem;
+  padding: 1.5rem;
+}
+
+  .recipe-card {
+    margin-top: calc(16.5vh + 1.5rem);
+  }
 }
 </style>
 
